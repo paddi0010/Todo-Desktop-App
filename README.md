@@ -3,7 +3,7 @@
 This is a basic Todo Desktop App for Windows and was created with electron.
 
 
-#Functions
+# Functions
 
 
 This Todo app is in a table design, in the future i plan to expand this with a modern design with submenus.
