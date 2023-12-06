@@ -1,6 +1,6 @@
 # Introduction
 
-This is a basic Todo Desktop App for Windows.
+This is a basic Todo Desktop App for Windows and was created with electron.
 
 
 #Functions
