@@ -12,7 +12,7 @@ function createWindow() {
         }
     });
 
-    mainWindow.loadFile(path.join(__dirname, 'renderer', 'index.html'));
+    mainWindow.loadFile(path.join(__dirname, 'src', 'index.html'));
 
     mainWindow.on('closed', function () {
         mainWindow = null;
