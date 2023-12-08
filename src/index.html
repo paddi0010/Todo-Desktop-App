@@ -8,11 +8,20 @@
 </head>
 <body>
     <h1>Todo App</h1>
+
+    <!--Dark Mode Switch-->
+    <div class="dark-mode-switch">
+        <input type="checkbox" id="darkModeToggle">
+        <label for="darkModeToggle" class="toggle-lable">
+            <span class="moon">&#127773;</span>
+            <span class="sun">&#9728;</span>
+        </label>
+    </div>
+
     <input type="text" id="newTodo" placeholder="Neue Aufgabe eingeben">
     <button onclick="addTodo()">Hinzufügen</button>
     <button onclick="clearTodo()">Leeren</button>
     <ul id="todoList"></ul>
-
     <script src="index.js"></script>
 </body>
 </html>

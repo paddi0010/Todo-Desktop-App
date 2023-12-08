@@ -69,3 +69,23 @@ function editTodo() {
         span.innerText = editText;
     }
 }
+
+const darkModeToggle = document.getElementById('darkModeToggle');
+updateDarkMode(darkModeToggle.checked);
+
+darkModeToggle.addEventListener('change', function() {
+    updateDarkMode(this.checked);
+});
+
+function updateDarkMode(isDarkMode) {
+
+    document.body.classList.toggle('dark-mode', isDarkMode);
+
+    const h1Element = document.querySelector('h1');
+    h1Element.style.color = isDarkMode ? '#fff' : '#333';
+
+    const todoList = document.getElementById('todoList');
+    todoList.style.color = isDarkMode ? '#fff' : '#333';
+    
+    document.body.style.backgroundColor = isDarkMode ? '#333' : '#fff';
+}
