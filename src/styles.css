@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+#newTodo {
+    margin-bottom: 10px;
+}
+
+#todoList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.todoItem {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+}
+
+.todoItem span {
+    width: 100%;
+    word-wrap: break-word;
+    margin-bottom: 5px;
+}
+
+.todoItem button {
+    align-self: flex-end;
+    margin-left: 5px;
+}
+
+.abgeschlossen {
+    background-color: rgb(0, 255, 0);
+}
+
+.inArbeit {
+    background-color: orange;
+}
