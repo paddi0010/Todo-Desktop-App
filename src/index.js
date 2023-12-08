@@ -7,6 +7,7 @@ document.getElementById('newTodo').addEventListener('keyup', function(event) {
 function addTodo() {
     var todoText = document.getElementById('newTodo').value;
     var newTodoInput = document.getElementById('newTodo');
+
     if (todoText === '') {
         alert('Bitte eine Aufgabe eingeben!');
         newTodoInput.style.border = '2px solid red';
@@ -19,13 +20,7 @@ function addTodo() {
 
     var span = document.createElement('span');
     span.innerText = todoText;
-
-    var deleteButton = document.createElement('button');
-    deleteButton.innerText = 'Löschen';
-    deleteButton.onclick = function() {
-        todoList.removeChild(li);
-    };
-
+    
     var completeButton = document.createElement('button');
     completeButton.innerText = 'Abgeschlossen';
     completeButton.onclick = function() {
@@ -38,10 +33,16 @@ function addTodo() {
         setStatus(li, 'inArbeit');
     };
 
+    var deleteButton = document.createElement('button');
+    deleteButton.innerText = 'Löschen';
+    deleteButton.onclick = function() {
+        todoList.removeChild(li);
+    };
+
     li.appendChild(span);
-    li.appendChild(deleteButton);
     li.appendChild(completeButton);
     li.appendChild(inProgressButton);
+    li.appendChild(deleteButton);
     todoList.appendChild(li);
 
     document.getElementById('newTodo').value = '';
