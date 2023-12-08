@@ -19,10 +19,11 @@ function addTodo() {
 
     var span = document.createElement('span');
     span.innerText = todoText;
-    span.addEventListener('dblclick', function() {
-        editTodo(span);
-    });
-    
+
+    var editInput = document.createElement('input');
+    editInput.type = 'text';
+    editInput.style.display = 'none';
+
     var completeButton = document.createElement('button');
     completeButton.innerText = 'Abgeschlossen';
     completeButton.onclick = function() {
@@ -47,8 +48,8 @@ function addTodo() {
     li.appendChild(deleteButton);
     todoList.appendChild(li);
 
-   newTodoInput.value = '';
-   newTodoInput.style.border = '';
+    newTodoInput.value = '';
+    newTodoInput.style.border = '';
 }
 
 function setStatus(element, status) {
@@ -56,18 +57,10 @@ function setStatus(element, status) {
     element.classList.add(status);
 }
 
+
 function clearTodo() {
     var todoList = document.getElementById('todoList');
     todoList.innerHTML = '';
-}
-
-function editTodo() {
-    var todoText = span.innerText;
-    var editText = prompt('Bearbeite die Aufgabe:', todoText);
-
-    if (editText !== null) {
-        span.innerText = editText;
-    }
 }
 
 const darkModeToggle = document.getElementById('darkModeToggle');
@@ -78,7 +71,6 @@ darkModeToggle.addEventListener('change', function() {
 });
 
 function updateDarkMode(isDarkMode) {
-
     document.body.classList.toggle('dark-mode', isDarkMode);
 
     const h1Element = document.querySelector('h1');
@@ -86,6 +78,6 @@ function updateDarkMode(isDarkMode) {
 
     const todoList = document.getElementById('todoList');
     todoList.style.color = isDarkMode ? '#fff' : '#333';
-    
+
     document.body.style.backgroundColor = isDarkMode ? '#333' : '#fff';
 }
