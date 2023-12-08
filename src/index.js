@@ -9,7 +9,6 @@ function addTodo() {
     var newTodoInput = document.getElementById('newTodo');
 
     if (todoText === '') {
-        alert('Bitte eine Aufgabe eingeben!');
         newTodoInput.style.border = '2px solid red';
         return;
     }
@@ -20,6 +19,9 @@ function addTodo() {
 
     var span = document.createElement('span');
     span.innerText = todoText;
+    span.addEventListener('dblclick', function() {
+        editTodo(span);
+    });
     
     var completeButton = document.createElement('button');
     completeButton.innerText = 'Abgeschlossen';
@@ -45,7 +47,8 @@ function addTodo() {
     li.appendChild(deleteButton);
     todoList.appendChild(li);
 
-    document.getElementById('newTodo').value = '';
+   newTodoInput.value = '';
+   newTodoInput.style.border = '';
 }
 
 function setStatus(element, status) {
@@ -56,4 +59,13 @@ function setStatus(element, status) {
 function clearTodo() {
     var todoList = document.getElementById('todoList');
     todoList.innerHTML = '';
+}
+
+function editTodo() {
+    var todoText = span.innerText;
+    var editText = prompt('Bearbeite die Aufgabe:', todoText);
+
+    if (editText !== null) {
+        span.innerText = editText;
+    }
 }
