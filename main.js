@@ -1,24 +1,23 @@
 const { app, BrowserWindow } = require('electron');
-const path = require('path');
 
+// Erstelle ein Browserfenster
 let mainWindow;
 
 function createWindow() {
-    mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
-        webPreferences: {
-            nodeIntegration: true
-        }
-    });
+    mainWindow = new BrowserWindow({ width: 800, height: 600 });
 
-    mainWindow.loadFile(path.join(__dirname, 'src', 'index.html'));
+    // Lade deine index.html-Datei oder eine andere Startdatei
+    mainWindow.loadFile('./src/index.html');
+
+    // Öffne die Entwicklertools automatisch
+    mainWindow.webContents.openDevTools();
 
     mainWindow.on('closed', function () {
         mainWindow = null;
     });
 }
 
+// App-Ereignisse
 app.on('ready', createWindow);
 
 app.on('window-all-closed', function () {
