@@ -1,6 +1,6 @@
 # Introduction
 
-This is a simple Todo desktop app for Windows and was built with Electron. I'm planning a new design in the future, but I think this simple design is sufficient for now.
+This is a simple Todo desktop app for Windows and was built with Electron. I'm planning a new design in the future, but I think this simple design is sufficient for now. I keep adding new Functions. 
 
 
 # How to use it
