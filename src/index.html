@@ -19,9 +19,15 @@
     </div>
 
     <input type="text" id="newTodo" placeholder="Neue Aufgabe eingeben">
+    <select id="prioritySelector">
+        <option value="low">Niedrig</option>
+        <option value="medium">Mittel</option>
+        <option value="high">Hoch</option>
+    </select>
     <button onclick="addTodo()">Hinzufügen</button>
     <button onclick="clearTodo()">Leeren</button>
     <ul id="todoList"></ul>
+
     <script src="index.js"></script>
 </body>
 </html>

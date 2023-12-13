@@ -7,6 +7,7 @@ document.getElementById('newTodo').addEventListener('keyup', function(event) {
 function addTodo() {
     var todoText = document.getElementById('newTodo').value;
     var newTodoInput = document.getElementById('newTodo');
+    var prioritySelector = document.getElementById('prioritySelector');
 
     if (todoText === '') {
         newTodoInput.style.border = '2px solid red';
@@ -15,10 +16,12 @@ function addTodo() {
 
     var todoList = document.getElementById('todoList');
     var li = document.createElement('li');
-    li.className = 'todoItem';
+    var priorityClass = prioritySelector.value;
+
+    li.className = 'todoItem ' + priorityClass;
 
     var span = document.createElement('span');
-    span.innerText = todoText;
+    span.innerHTML = `${todoText} (<span style="color: ${getTextColorForPriority(priorityClass)}">${getPriorityText(priorityClass)}</span>)`;
 
     var editInput = document.createElement('input');
     editInput.type = 'text';
@@ -80,4 +83,30 @@ function updateDarkMode(isDarkMode) {
     todoList.style.color = isDarkMode ? '#fff' : '#333';
 
     document.body.style.backgroundColor = isDarkMode ? '#333' : '#fff';
+}
+
+function getPriorityText(priority) {
+    switch (priority) {
+        case 'low':
+            return 'Niedrig';
+        case 'medium':
+            return 'Mittel';
+        case 'high':
+                return 'Hoch';
+        default:
+                return '';
+    }
+}
+
+function getTextColorForPriority(priority) {
+    switch (priority) {
+        case 'low':
+            return 'green';
+        case 'medium':
+            return 'orange';
+         case 'high':
+                return 'red';
+        default:
+                return 'black';
+    }
 }
